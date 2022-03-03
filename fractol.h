@@ -17,10 +17,11 @@
 # include <stdio.h>
 # include <mlx.h>
 # include <math.h>
+#include "keycode_mac.h"
 
 # define WIDTH 1000
 # define HEIGHT 1000
-# define MAXINTER 200
+# define MAXINTER 100
 
 typedef struct s_color
 {
@@ -35,22 +36,30 @@ typedef struct s_cord
 	double	y;
 }	t_cord;
 
-typedef struct s_win
-{
-	t_cord	min;
-	t_cord	max;
-	double	scale;
-}	t_win;
-
 typedef struct s_data
 {
 	void	*ptr;
 	void	*win;
+
+	void	*img;
+	char	*addr;
+	int		psize;
+	int		sline;
+	int		end;
+
+	t_cord	cd;
 	t_color	cl;
+	t_cord	min;
+	t_cord	max;
+	t_cord	julia;
+	long double	scale;
 }	t_data;
 
-void	ft_fractol(t_data data);
-void	ft_putpixel(t_data data, t_cord cd, int interat);
-void	ft_mandelbrot(t_data data, t_cord cd, t_cord pixel);
+void	fractol(t_data *data);
+void	putpixel(t_data *data, int interat);
+void	mandelbrot(t_data *data, t_cord pixel);
+void	julia(t_data *data, t_cord pixel);
+int		mouse_hook(int key, int x, int y, t_data *data);
+int		key_hook(int k, t_data *data);
 
 #endif

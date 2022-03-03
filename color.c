@@ -12,33 +12,36 @@
 
 #include "fractol.h"
 
-void	ft_putpixel(t_data data, t_cord cd, int interat)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	int		mxnterat;
-	double	color;
+	char	*dst;
 
-	color = data.cl.red;
-	color = data.cl.blue * 10^3;
-	color = data.cl.green * 10^6;
-	mxnterat = 200;
-	if (interat == mxnterat)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x000000);
-	else if (interat > mxnterat / 10)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x1A4880);
-	else if (interat > mxnterat / 16)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x0A3770);
-	else if (interat > mxnterat / 24)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x205A9F);
-	else if (interat > mxnterat / 32)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x266CBF);
-	else if (interat > mxnterat / 40)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x2D7EDF);
-	else if (interat > mxnterat / 48)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x3390FF);
-	else if (interat > mxnterat / 56)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x6D92BF);
-	else if (interat > mxnterat / 64)
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x7FABDF);
+	dst = data->addr + (y * data->sline + x * (data->psize / 8));
+	*(unsigned int*)dst = color;
+}
+
+void	putpixel(t_data *data, int interat)
+{
+	double	color;
+	//blue 1722496
+	//purple 6711680
+	// red 7822496
+	color = 1722496;
+	if (interat == MAXINTER)
+	{
+		//mlx_pixel_put(data->ptr, data->win, data->cd.x, data->cd.y, 0x000000);
+		my_mlx_pixel_put(data, data->cd.x, data->cd.y, 0x000000);
+	}
 	else
-		mlx_pixel_put(data.ptr, data.win, cd.x, cd.y, 0x91C3FF);
+	{
+		while (interat < MAXINTER)
+		{//320
+
+			interat++;
+			color += 3106;
+		}//3106
+		//mlx_pixel_put(data->ptr, data->win, data->cd.x, data->cd.y, color);
+		my_mlx_pixel_put(data, data->cd.x, data->cd.y, color);
+	}
+	
 }
