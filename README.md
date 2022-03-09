@@ -15,10 +15,6 @@ Various natural phenomena – like the romanesco cabbage – have some fractal f
 * Zoom and unzoom.
 * Different colors patterns.
 
-## Credits
-* Wikipedia : Julia Set, Mandelbrot, Burningship.
-
-
 ## Compiling and running
 Run `make`. An executable will compile. Runs on OS.
 
