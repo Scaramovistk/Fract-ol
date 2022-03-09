@@ -1,6 +1,6 @@
 # Fract-ol @ 42
 
-##Summary
+## Summary
 
 
 
@@ -12,7 +12,7 @@
 * Zoom and unzoom.
 * Different colors patterns.
 
-##Credits
+## Credits
 * Wikipedia : Julia Set, Mandelbrot, Burningship.
 
 
@@ -23,7 +23,7 @@ Run it with `./fractol [fractal] [color] [type]`. Possible fractals are: `Mandel
 `Burningship`. Cycle color-schemes with `0-3`. `[<-][^][->]` Use the Arrows to move. Zoom in and out with the
 mousewheel.
 
-##Contact & contribute
+## Contact & contribute
 * To contact me and helping me to (fix bugs || improve), feel free to e-mail me at gscarama@student.s19.be
 
 <img align="center" width="700" alt="Burningship" src="https://user-images.githubusercontent.com/85752923/157449565-f4b2ddca-4c4c-4976-aca2-0fc8dc96274f.png">
